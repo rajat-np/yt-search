@@ -13,6 +13,7 @@ class YoutubeWrapper(object):
     os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
     api_service_name = 'youtube'
     api_version = 'v3'
+    search_query = settings.YOUTUBE_QUERY
 
     def client_init(self, api_key):
         self.youtube = googleapiclient.discovery.build(
@@ -29,7 +30,7 @@ class YoutubeWrapper(object):
                     type='video',
                     part='snippet',
                     order='date',
-                    q='cricket',
+                    q=self.search_query,
                     publishedAfter=published_after
                 )
                 response = request.execute()

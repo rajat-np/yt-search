@@ -253,6 +253,7 @@ REST_FRAMEWORK = {
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
 CORS_URLS_REGEX = r"^/api/.*$"
 
-# Youtube api.
+# Youtube
 # ------------------------------------------------------------------------------
 YOUTUBE_API_KEY = env.list("YOUTUBE_API_KEY", default=[])
+YOUTUBE_QUERY = env.str("YOUTUBE_QUERY", default='cricket')
