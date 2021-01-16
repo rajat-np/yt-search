@@ -245,9 +245,9 @@ CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 # -------------------------------------------------------------------------------
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-    'PAGE_SIZE': 10
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
+    "PAGE_SIZE": 10,
 }
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
@@ -256,4 +256,7 @@ CORS_URLS_REGEX = r"^/api/.*$"
 # Youtube
 # ------------------------------------------------------------------------------
 YOUTUBE_API_KEY = env.list("YOUTUBE_API_KEY", default=[])
-YOUTUBE_QUERY = env.str("YOUTUBE_QUERY", default='cricket')
+YOUTUBE_QUERY = env.str("YOUTUBE_QUERY", default="cricket")
+
+# Fetch interval in seconds, default 20 seconds
+FETCH_INTERVAL = env.str("FETCH_INTERVAL", default=20)
