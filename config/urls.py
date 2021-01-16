@@ -25,7 +25,7 @@ if settings.DEBUG:
 # API URLS
 urlpatterns += [
     # API base url
-    path("api/", include("config.api_router")),
+    path("api/", include("data.urls")),
 ]
 
 if settings.DEBUG:
