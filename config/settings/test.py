@@ -24,12 +24,6 @@ CACHES = {
         "LOCATION": "",
     }
 }
-
-# PASSWORDS
-# ------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/dev/ref/settings/#password-hashers
-PASSWORD_HASHERS = ["django.contrib.auth.hashers.MD5PasswordHasher"]
-
 # TEMPLATES
 # ------------------------------------------------------------------------------
 TEMPLATES[-1]["OPTIONS"]["loaders"] = [  # type: ignore[index] # noqa F405

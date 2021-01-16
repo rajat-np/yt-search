@@ -10,11 +10,12 @@ django-celery-beat==2.1.0  # https://github.com/celery/django-celery-beat
 django-timezone-field==4.0  # https://github.com/celery/django-celery-beat/pull/378
 flower==0.9.7  # https://github.com/mher/flower
 uvicorn[standard]==0.13.3  # https://github.com/encode/uvicorn
-google-api-python-client==1.12.8 
+google-api-python-client==1.12.8
+google-auth-oauthlib==0.4.2
 
 # Django
 # ------------------------------------------------------------------------------
-django==3.0.11  # pyup: < 3.1  # https://www.djangoproject.com/
+django==3.1
 django-environ==0.4.5  # https://github.com/joke2k/django-environ
 django-model-utils==4.1.1  # https://github.com/jazzband/django-model-utils
 django-allauth==0.44.0  # https://github.com/pennersr/django-allauth

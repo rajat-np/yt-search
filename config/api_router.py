@@ -7,6 +7,5 @@ else:
     router = SimpleRouter()
 
 
-
 app_name = "api"
 urlpatterns = router.urls

@@ -5,7 +5,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
-from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -15,8 +14,8 @@ urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
-    path("users/", include("yt_search.users.urls", namespace="users")),
-    path("accounts/", include("allauth.urls")),
+    # path("users/", include("yt_search.users.urls", namespace="users")),
+    # path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
@@ -27,8 +26,6 @@ if settings.DEBUG:
 urlpatterns += [
     # API base url
     path("api/", include("config.api_router")),
-    # DRF auth token
-    path("auth-token/", obtain_auth_token),
 ]
 
 if settings.DEBUG:
@@ -39,11 +36,6 @@ if settings.DEBUG:
             "400/",
             default_views.bad_request,
             kwargs={"exception": Exception("Bad Request!")},
-        ),
-        path(
-            "403/",
-            default_views.permission_denied,
-            kwargs={"exception": Exception("Permission Denied")},
         ),
         path(
             "404/",
