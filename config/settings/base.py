@@ -67,6 +67,7 @@ THIRD_PARTY_APPS = [
     "django_celery_beat",
     "rest_framework",
     "corsheaders",
+    "django_filters",
 ]
 
 LOCAL_APPS = [
@@ -254,4 +255,4 @@ CORS_URLS_REGEX = r"^/api/.*$"
 
 # Youtube api.
 # ------------------------------------------------------------------------------
-YOUTUBE_API_KEY = env.str("YOUTUBE_API_KEY", default='')
+YOUTUBE_API_KEY = env.list("YOUTUBE_API_KEY", default=[])
