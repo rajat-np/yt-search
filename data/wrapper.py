@@ -1,5 +1,3 @@
-
-
 import os
 
 import google_auth_oauthlib.flow
@@ -13,27 +11,31 @@ from .models import Video
 
 class YoutubeWrapper(object):
     os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-    api_key = settings.YOUTUBE_API_KEY
     api_service_name = 'youtube'
     api_version = 'v3'
 
-
-    def __init__(self):
+    def client_init(self, api_key):
         self.youtube = googleapiclient.discovery.build(
             self.api_service_name,
             self.api_version,
-            developerKey=self.api_key,
+            developerKey=api_key,
         )
 
     def get_data(self, published_after=None):
-        request = self.youtube.search().list(
-            type='video',
-            part='snippet',
-            order='date',
-            q='cricket',
-            publishedAfter=published_after
-        )
-        response = request.execute()
+        for api_key in settings.YOUTUBE_API_KEY:
+            try:
+                self.client_init(api_key)
+                request = self.youtube.search().list(
+                    type='video',
+                    part='snippet',
+                    order='date',
+                    q='cricket',
+                    publishedAfter=published_after
+                )
+                response = request.execute()
+                break
+            except googleapiclient.errors.HttpError:
+                continue
         return response['items']
 
     def extract_data(self, item):
