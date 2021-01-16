@@ -77,6 +77,9 @@ $ git clone https://github.com/rajat-np/yt-search
      alt="Search request example"
      style="float: left; margin-right: 10px;" />
 
+## Code
+
+Most of the code related to assignment resides in [data app](https://github.com/rajat-np/yt-search/tree/main/data)
 
 ## Credits
 
